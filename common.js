@@ -117,6 +117,8 @@
       '.av-spirit__statement span',
       '.av-movie',
       '.av-spirit__body',
+      '.av-team__image',
+      '.av-team__body > *',
       '.av-interval__img',
       '.av-uniform__card',
       '.av-news .av-heading',
@@ -210,6 +212,7 @@
     const parallaxItems = Array.from(document.querySelectorAll([
       '[data-av-parallax]',
       '.av-hero__visual img',
+      '.av-team__image img',
       '.av-interval__img',
       '.av-uniform__bg',
       '.av-subpage .page-hero__media img',

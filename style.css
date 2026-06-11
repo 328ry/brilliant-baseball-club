@@ -3087,7 +3087,7 @@ body:has(.alvamos-home) .site-nav {
 }
 
 body:has(.alvamos-home) .site-nav__list {
-  gap: 28px;
+  gap: clamp(18px, 1.8vw, 28px);
 }
 
 body:has(.alvamos-home) .site-nav__link {
@@ -3642,6 +3642,113 @@ body:has(.av-subpage) .av-ticket {
 
 .av-pill--yellow {
   background: var(--av-yellow);
+}
+
+.av-team {
+  position: relative;
+  background: var(--av-paper);
+  overflow: hidden;
+}
+
+.av-team::before {
+  content: "roster";
+  position: absolute;
+  right: max(28px, 5vw);
+  top: 26px;
+  font-family: var(--ff-display);
+  font-size: clamp(88px, 14vw, 190px);
+  line-height: 0.8;
+  letter-spacing: 0;
+  color: rgba(19, 19, 19, 0.055);
+  pointer-events: none;
+}
+
+.av-team__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: clamp(36px, 6vw, 86px);
+  align-items: center;
+}
+
+.av-team__image {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: var(--r-std);
+  background: var(--av-black);
+}
+
+.av-team__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(19, 19, 19, 0.05), rgba(19, 19, 19, 0.34)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 18px);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.av-team__image img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  transform: translate3d(0, var(--av-parallax-y, 0px), 0) scale(1.04);
+}
+
+.av-team__body h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(66px, 8.6vw, 132px);
+  line-height: 0.86;
+  letter-spacing: 0;
+  color: var(--av-black);
+  margin: 14px 0 28px;
+}
+
+.av-team__body p:not(.av-section-label) {
+  max-width: 560px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.95;
+}
+
+.av-team__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 34px 0 6px;
+  background: var(--av-black);
+  border: 1px solid var(--av-black);
+  border-radius: var(--r-std);
+  overflow: hidden;
+}
+
+.av-team__facts li {
+  min-height: 96px;
+  padding: 18px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  background: #fff;
+}
+
+.av-team__facts span {
+  font-family: var(--ff-tech);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(19, 19, 19, 0.56);
+  text-transform: lowercase;
+}
+
+.av-team__facts b {
+  font-family: var(--ff-tech);
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--av-black);
 }
 
 .av-interval {
@@ -4252,6 +4359,7 @@ body:has(.alvamos-home) .site-footer__nav small {
   }
 
   .av-spirit__layout,
+  .av-team__grid,
   .av-news__layout,
   .av-news-row {
     grid-template-columns: 1fr;
@@ -4265,6 +4373,19 @@ body:has(.alvamos-home) .site-footer__nav small {
     width: min(340px, 100%);
     height: 210px;
     margin-top: 0;
+  }
+
+  .av-team__grid {
+    gap: 42px;
+  }
+
+  .av-team__image,
+  .av-team__image img {
+    min-height: 360px;
+  }
+
+  .av-team__body h2 {
+    font-size: clamp(62px, 16vw, 104px);
   }
 
   .av-interval {
@@ -4356,6 +4477,40 @@ body:has(.alvamos-home) .site-footer__nav small {
 
   .av-hero__copy p:last-child {
     font-size: 14px;
+  }
+
+  .av-team {
+    padding-block: 86px !important;
+  }
+
+  .av-team::before {
+    right: 12px;
+    top: 20px;
+    font-size: 82px;
+  }
+
+  .av-team__image,
+  .av-team__image img {
+    min-height: 280px;
+  }
+
+  .av-team__body h2 {
+    font-size: clamp(54px, 16vw, 70px);
+    line-height: 0.92;
+  }
+
+  .av-team__body p:not(.av-section-label) {
+    font-size: 14px;
+  }
+
+  .av-team__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .av-team__facts li {
+    min-height: 76px;
+    grid-template-columns: 1fr auto;
+    align-items: center;
   }
 
   .av-ticket {
@@ -4537,7 +4692,7 @@ body:has(.av-subpage) .site-nav {
 }
 
 body:has(.av-subpage) .site-nav__list {
-  gap: 28px;
+  gap: clamp(18px, 1.8vw, 28px);
 }
 
 body:has(.av-subpage) .site-nav__link {
