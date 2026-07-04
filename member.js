@@ -9,13 +9,8 @@
   if (!loginPanel || !dashboard || !loginForm) return;
 
   const sessionKey = 'brilliant-member-session';
-  const attendanceKey = 'brilliant-member-attendance-20260607';
-  const baseResponses = [
-    { name: '中野', answer: 'yes', comment: '車出せます' },
-    { name: '松本', answer: 'yes', comment: '道具持っていきます' },
-    { name: '森', answer: 'late', comment: '8:40着予定' },
-    { name: '鈴木', answer: 'no', comment: '仕事で欠席' }
-  ];
+  const attendanceKey = 'brilliant-member-attendance-current';
+  const baseResponses = [];
 
   const labels = {
     yes: '参加',

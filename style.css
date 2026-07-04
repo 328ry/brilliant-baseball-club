@@ -722,6 +722,7 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 .badge--draw { background: var(--strikeline); color: var(--night); }
 .badge--scheduled { background: var(--turf-shadow); color: var(--dugout); border: 1px solid var(--strikeline); }
 .badge--game { background: var(--field-navy); color: var(--chalk); }
+.badge--news { background: var(--field-navy); color: var(--chalk); }
 .badge--practice { background: var(--turf-shadow); color: var(--field-navy); border: 1px solid var(--strikeline); }
 .badge--event { background: var(--leather); color: var(--chalk); }
 

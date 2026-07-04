@@ -322,14 +322,21 @@
 
   // 10. Contact form — friendly stub
   const form = document.querySelector('.contact-form');
+  const disabledContactButton = document.querySelector('[data-contact-disabled]');
+  const showContactNotice = () => {
+    const note = form?.querySelector('.form-note');
+    if (note) {
+      note.textContent = '現在このフォームからは送信できません。受付開始後、公式LINEまたはSNSのDMへ案内します。';
+      note.style.color = 'var(--hit-red)';
+    }
+  };
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const note = form.querySelector('.form-note');
-      if (note) {
-        note.textContent = 'まだ送信されません。公開前に公式LINEまたはSNSのDMリンクを接続してください。';
-        note.style.color = 'var(--hit-red)';
-      }
+      showContactNotice();
     });
+  }
+  if (disabledContactButton) {
+    disabledContactButton.addEventListener('click', showContactNotice);
   }
 })();
